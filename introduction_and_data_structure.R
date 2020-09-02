@@ -51,4 +51,23 @@ hist_income <- hist(loan_data$annual_inc,
                     main = "Histogram of Annual Income")
 hist_income$breaks
 
+# Using the breaks urgument
+n_breaks <- sqrt(nrow(loan_data)) #n_breaks = 170.5638
+hist_income_n <- hist(loan_data$annual_inc, breaks = n_breaks,
+                      xlab = "Annual Income", main = "Histogram of Annual Income")
+# Scatter plot of annual income
+
+plot(loan_data$annual_inc, ylab = "Annual Income")
+
+# Finding an aoutlier in the dataset
+index_outlier_expert <- which(loan_data$annual_inc > 3000000)
+
+# Removing the outlier from the data set
+loan_data_expert <- loan_data[-index_outlier_expert]
+
+hist(loan_data_expert$annual_inc,
+     sqrt(nrow(loan_data_expert)),
+     xlab = "Annual Income")
+
+#Bivariate plot
 
