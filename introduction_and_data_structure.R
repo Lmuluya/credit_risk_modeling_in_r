@@ -34,7 +34,21 @@ CrossTable(loan_data$loan_status)
 CrossTable(loan_data$grade, loan_data$loan_status, prop.r = TRUE,
            prop.c = FALSE, prop.t = FALSE, prop.chisq = FALSE)
 
+## Data visualisations
+## Using histograms
+## Call the function histogram
+
+hist(loan_data$int_rate, main ="Histogram of interest rate",xlab = "Interest Rate")
 
 
+## Looking at the histogram of of annual income
+hist(loan_data$annual_inc, xlab = "Annual Income", main = "Histogram of Annual income")
+# Does not visually okay
+
+# Another view
+hist_income <- hist(loan_data$annual_inc,
+                    xlab = "Annual Income",
+                    main = "Histogram of Annual Income")
+hist_income$breaks
 
 
