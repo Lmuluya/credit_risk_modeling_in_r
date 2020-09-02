@@ -15,4 +15,26 @@ loan_data <- readRDS("./data/loan_data.rds")
 head(loan_data, 10) # Selecting the top ten records of the dataset
 str(loan_data) ## Estabilishig the structure of the dataset
 
+## Loading the gmodels package in order to use the CrossTable funcion.
+library(gmodels)
+CrossTable(loan_data$home_ownership)
+
+## CrossTable gives more information than table. It shows the proportions as well.
+table(loan_data$home_ownership)
+
+## Relating home_ownership with loan_status
+CrossTable(x = loan_data$home_ownership, y = loan_data$loan_status, prop.r = TRUE,
+           prop.c = FALSE, prop.t = FALSE, prop.chisq = FALSE)
+
+#Cross table on loan status
+# Call CrossTable() on loan_status
+CrossTable(loan_data$loan_status)
+
+# Call CrossTable() on grade and loan_status
+CrossTable(loan_data$grade, loan_data$loan_status, prop.r = TRUE,
+           prop.c = FALSE, prop.t = FALSE, prop.chisq = FALSE)
+
+
+
+
 
